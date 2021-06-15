@@ -17,28 +17,24 @@ interface IProps {
 }
 
 const Container = styled.div`
-	width: 120px;
+	width: 100%;
 	cursor: pointer;
-
-	@media only screen and (min-width: 768px) {
-		width: 185px;
-	}
+	flex-shrink: 0;
 `
 const Poster = styled.img`
-	font-size: 14px;
-	line-height: 1.3;
+	display: inline-block;
 	width: 100%;
-	height: 180.32px;
 	border-radius: 12px;
-
+	
 	@media only screen and (min-width: 768px) {
 		border-radius: 24px;
-		height: 278px;
-		font-size: 16px;
 	}
+
+	overflow: hidden;
 `
 
 const Title = styled.p`
+	line-height: 1.3;
 	width: 100%;
 	margin: 4px 0;
 	color: #eee;
@@ -51,7 +47,7 @@ const Title = styled.p`
 
 const IMG_BASE_URL =
 	"https://image.tmdb.org/t/p/" +
-	(document.body.clientWidth < 768 ? "w154" : "w185")
+	(document.body.clientWidth >= 1000 ? "w185" : "w154")
 
 export default function MovieCard(props: IProps) {
 	return (
@@ -67,3 +63,5 @@ export default function MovieCard(props: IProps) {
 		</Container>
 	)
 }
+
+export { Container }
