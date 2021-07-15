@@ -8,11 +8,6 @@ const Container = styled.div<{ ratio: number }>`
 
 	padding-bottom: ${(props) => props.ratio * 100}%;
 
-	border-radius: 12px;
-	@media only screen and (min-width: 768px) {
-		border-radius: 24px;
-	}
-
 	overflow: hidden;
 `
 
@@ -28,7 +23,7 @@ const Image = styled.img`
 `
 
 interface IProps {
-	src: string
+	src: string | undefined
 	alt: string
 	ratio: "POSTER_RATIO" | "BACKDROP_RATIO"
 }
@@ -42,7 +37,10 @@ const observer = new IntersectionObserver(
 				if (!image.getAttribute("data-src"))
 					throw new Error("Data-src is not defined in <Image />")
 
-				image.src = image.getAttribute("data-src") as string
+				const src = image.getAttribute("data-src") as string
+
+				if (src) image.src = src
+
 				observer.unobserve(image)
 			}
 		})
@@ -54,7 +52,7 @@ const observer = new IntersectionObserver(
 
 const RATIO = {
 	POSTER_RATIO: 278 / 185,
-	BACKDROP_RATIO: 1280 / 720,
+	BACKDROP_RATIO: 720 / 1280,
 }
 
 export default function WrappedImage(props: IProps) {
@@ -65,24 +63,34 @@ export default function WrappedImage(props: IProps) {
 		if (imageRef.current) observer.observe(imageRef.current)
 	}, [imageRef])
 
+	const GetImage = props.src ? (
+		<Image
+			onLoad={(event) => {
+				const image = event.target as HTMLImageElement
+
+				// remove the background outline bug at image corners
+				image.style.background = "none"
+			}}
+			onError={(event) => {
+				const image = event.target as HTMLImageElement
+
+				if (props.ratio === "POSTER_RATIO") image.src = "/fallback-poster.png"
+				else image.src = "/fallback-backdrop.png"
+			}}
+			ref={imageRef}
+			data-src={props.src}
+			alt={props.alt}
+		/>
+	) : (
+		<Image
+			src={props.ratio === "POSTER_RATIO" ? "/fallback-poster.png" : "/fallback-backdrop.png"}
+			alt={props.alt}
+		/>
+	)
+
 	return (
 		<Container ratio={RATIO[props.ratio]}>
-			<Image
-				onLoad={(event) => {
-					const image = event.target as HTMLImageElement
-
-					// remove the background outline bug at image corners
-					image.style.background = "none"
-				}}
-				onError={(event) => {
-					const image = event.target as HTMLImageElement
-
-					image.src = "fallback-poster.png"
-				}}
-				ref={imageRef}
-				data-src={props.src}
-				alt={props.alt}
-			/>
+			{GetImage}
 		</Container>
 	)
 }

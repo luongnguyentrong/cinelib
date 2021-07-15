@@ -1,19 +1,11 @@
 import styled from "styled-components"
+import WrappedImage from "./WrappedImage"
 import Rating from "./Rating"
-
-interface IBasicInfo {
-	id: number
-	overview: string
-	vote_average: number
-	title: string
-	release_date: string
-	backdrop_path: string
-	poster_path: string
-	genre_ids: Array<number>
-}
+import { Link } from "react-router-dom"
+import { IMovie } from "../hooks/types"
 
 interface IProps {
-	movie: IBasicInfo
+	movie: IMovie
 }
 
 const Container = styled.div`
@@ -21,47 +13,54 @@ const Container = styled.div`
 	cursor: pointer;
 	flex-shrink: 0;
 `
-const Poster = styled.img`
-	display: inline-block;
-	width: 100%;
+const ImageStyles = styled.div`
+	line-height: 0;
 	border-radius: 12px;
-	
+	overflow: hidden;
+
 	@media only screen and (min-width: 768px) {
 		border-radius: 24px;
 	}
-
-	overflow: hidden;
 `
 
 const Title = styled.p`
 	line-height: 1.3;
 	width: 100%;
 	margin: 4px 0;
+	font-size: 14px;
 	color: #eee;
 
 	@media only screen and (min-width: 768px) {
+		font-size: 16px;
 		font-weight: bold;
 		margin-top: 8px;
 	}
 `
 
-const IMG_BASE_URL =
-	"https://image.tmdb.org/t/p/" +
-	(document.body.clientWidth >= 1000 ? "w185" : "w154")
+function truncateTitle(title: string): string {
+	const MAX_LEN = window.innerWidth < 768 ? 25 : 34
 
-export default function MovieCard(props: IProps) {
-	return (
-		<Container>
-			<Poster
-				src={IMG_BASE_URL + props.movie.poster_path}
-				alt="movie poster"
-			/>
+	if (title.length <= MAX_LEN) return title
 
-			<Title>{props.movie.title}</Title>
-
-			<Rating>{props.movie.vote_average}</Rating>
-		</Container>
-	)
+	return title.substring(0, MAX_LEN) + "..."
 }
 
-export { Container }
+const IMG_BASE_URL = "https://image.tmdb.org/t/p/w185"
+
+export default function MovieCard(props: IProps) {
+	const IMAGE_SRC = props.movie.poster_path ? IMG_BASE_URL + props.movie.poster_path : undefined
+
+	return (
+		<Link to={`/movie/${props.movie.id}`}>
+			<Container>
+				<ImageStyles>
+					<WrappedImage ratio="POSTER_RATIO" src={IMAGE_SRC} alt="movie poster" />
+				</ImageStyles>
+
+				<Title>{truncateTitle(props.movie.title)}</Title>
+
+				<Rating>{Math.round(props.movie.vote_average * 10) / 10}</Rating>
+			</Container>
+		</Link>
+	)
+}
