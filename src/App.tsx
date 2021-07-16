@@ -20,7 +20,10 @@ function App() {
 					<Details />
 				</Route>
 				
-				<Redirect to="/" />
+				<Route>
+					<div>Something</div>
+				</Route>
+				{/* <Redirect to="/" /> */}
 			</Switch>
 		</BrowserRouter>
 	)
