@@ -3,7 +3,6 @@ import Landing from "./components/Landing"
 import ViewAll from "./components/ViewAll"
 import Details from "./components/Details"
 import Header from "./components/Header"
-import Carousel from "./components/Carousel"
 
 function App() {
 	return (
@@ -21,10 +20,6 @@ function App() {
 					<Details />
 				</Route>
 				
-				<Route path="/test">
-					<Carousel fromDetails title="Similar movies" url="/movie/508943/similar" />
-				</Route>
-
 				<Redirect to="/" />
 			</Switch>
 		</BrowserRouter>

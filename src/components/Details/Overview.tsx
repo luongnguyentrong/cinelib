@@ -47,6 +47,7 @@ const GenreBlock = styled.li`
 	background-color: #393e46;
     
     margin-right: 12px;
+	margin-top: 8px;
 
 	@media only screen and (min-width: 768px) {
 		font-size: 16px;

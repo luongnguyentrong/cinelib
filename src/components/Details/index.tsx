@@ -124,7 +124,7 @@ export default function Details() {
 					<AddSpacing>
 						<Carousel
 							fromDetails
-							title="Similar movies"
+							title="Similar"
 							url={getSimilarURL(details.id)}
 						/>
 					</AddSpacing>

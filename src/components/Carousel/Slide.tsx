@@ -12,7 +12,12 @@ interface IActor {
 
 const HideOverflow = styled.div`
 	width: 100%;
-	overflow: hidden;
+
+	overflow-x: scroll;
+
+	@media only screen and (min-width: 768px) {
+		overflow: hidden;
+	}
 `
 
 const Item = styled.li`
@@ -22,7 +27,7 @@ const Item = styled.li`
 	padding-left: 12px;
 	padding-right: 12px;
 
-	width: 120px;
+	width: 144px;
 
 	@media only screen and (min-width: 408px) {
 		width: ${100 / 3}%;

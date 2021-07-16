@@ -4,13 +4,12 @@ import { ReactComponent as HomeIcon } from "../icons/home.svg"
 import { ReactComponent as GithubIcon } from "../icons/github.svg"
 import { Link } from "react-router-dom"
 
-const Container = styled.div`
+const Container = styled.header`
 	background-color: #222831;
 	border-bottom: 1px solid #393e46;
 	position: fixed;
 	z-index: 9999;
 	top: 0;
-	transition: top 0.3s;
 	box-sizing: border-box;
 	width: 100%;
 	padding: 0px 5%;

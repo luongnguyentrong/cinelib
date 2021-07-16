@@ -9,8 +9,13 @@ const Container = styled.div`
 const Vote = styled.span`
 	display: inline-block;
 	margin: 0;
-	margin-left: 8px;
+	margin-left: 6px;
 	color: #d65a31;
+	font-size: 14px;
+	
+	@media only screen and (min-width: 768px) {
+		font-size: 16px;
+	}
 `
 
 export default function Rating(props: { children: number }) {

@@ -26,14 +26,13 @@ const ImageStyles = styled.div`
 const Title = styled.p`
 	line-height: 1.3;
 	width: 100%;
-	margin: 4px 0;
+	margin: 8px 0 4px;
 	font-size: 14px;
 	color: #eee;
 
 	@media only screen and (min-width: 768px) {
 		font-size: 16px;
 		font-weight: bold;
-		margin-top: 8px;
 	}
 `
 

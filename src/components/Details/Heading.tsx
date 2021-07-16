@@ -27,8 +27,9 @@ const Container = styled.div`
 const Title = styled.p`
 	margin: 0;
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 20px;
 	line-height: 1.5;
+	text-align: center;
 
 	@media only screen and (min-width: 768px) {
 		font-size: 32px;
@@ -37,26 +38,29 @@ const Title = styled.p`
 
 const Tagline = styled.p`
 	margin: 0;
-	line-height: 1.7;
+	margin-top: 8px;
+	line-height: 1.3;
 	font-size: 14px;
 	font-style: italic;
-	
-	
+	text-align: center;
+
+	margin-bottom: 16px;
+
 	@media only screen and (min-width: 768px) {
 		font-size: 16px;
+		margin-bottom: 20px;
 	}
 `
 
 const Info = styled.div`
 	width: 100%;
 	max-width: 300px;
-	margin-top: 16px;
+	margin-top: 8px;
 	display: flex;
 	justify-content: space-between;
 
 	@media only screen and (min-width: 768px) {
 		max-width: 450px;
-		margin-top: 12px;
 	}
 `
 
@@ -98,16 +102,14 @@ function toTime(runtime: number): string {
 function transformDateFormat(date: string): string {
 	const newDate = new Date(date)
 
-	return `${newDate.getDate()} / ${
-		newDate.getMonth() + 1
-	} / ${newDate.getFullYear()}`
+	return `${newDate.getDate()} / ${newDate.getMonth() + 1} / ${newDate.getFullYear()}`
 }
 
 export default function Heading(props: IProps) {
 	return (
 		<Container>
 			<Title>{props.title}</Title>
-			<Tagline>{props.tagline}</Tagline>
+			{props.tagline && <Tagline>{props.tagline}</Tagline>}
 			<Info>
 				<InfoBlock>
 					<span className="icon">

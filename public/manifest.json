@@ -1,6 +1,6 @@
 {
   "short_name": "Cinelib",
-  "name": "A website to see info of every movie",
+  "name": "A cinema library known as CINELIB",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#222831",
+  "background_color": "#eee"
 }
