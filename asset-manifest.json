@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/cinelib/static/css/main.859477dc.chunk.css",
+    "main.js": "/cinelib/static/js/main.dc15315c.chunk.js",
+    "main.js.map": "/cinelib/static/js/main.dc15315c.chunk.js.map",
+    "runtime-main.js": "/cinelib/static/js/runtime-main.9e2e78bd.js",
+    "runtime-main.js.map": "/cinelib/static/js/runtime-main.9e2e78bd.js.map",
+    "static/js/2.af1dd8fc.chunk.js": "/cinelib/static/js/2.af1dd8fc.chunk.js",
+    "static/js/2.af1dd8fc.chunk.js.map": "/cinelib/static/js/2.af1dd8fc.chunk.js.map",
+    "static/js/3.97a5db65.chunk.js": "/cinelib/static/js/3.97a5db65.chunk.js",
+    "static/js/3.97a5db65.chunk.js.map": "/cinelib/static/js/3.97a5db65.chunk.js.map",
+    "index.html": "/cinelib/index.html",
+    "static/css/main.859477dc.chunk.css.map": "/cinelib/static/css/main.859477dc.chunk.css.map",
+    "static/js/2.af1dd8fc.chunk.js.LICENSE.txt": "/cinelib/static/js/2.af1dd8fc.chunk.js.LICENSE.txt",
+    "static/media/calendar.8d9f2d7e.svg": "/cinelib/static/media/calendar.8d9f2d7e.svg",
+    "static/media/github.a4d6dbe1.svg": "/cinelib/static/media/github.a4d6dbe1.svg",
+    "static/media/home.59bb1ca9.svg": "/cinelib/static/media/home.59bb1ca9.svg",
+    "static/media/left-circle-button.1da66d3f.svg": "/cinelib/static/media/left-circle-button.1da66d3f.svg",
+    "static/media/not-found.68fe7113.svg": "/cinelib/static/media/not-found.68fe7113.svg",
+    "static/media/right-circle-button.7bc300de.svg": "/cinelib/static/media/right-circle-button.7bc300de.svg",
+    "static/media/search.cc862783.svg": "/cinelib/static/media/search.cc862783.svg",
+    "static/media/star.452f5795.svg": "/cinelib/static/media/star.452f5795.svg",
+    "static/media/time.9dfec2ab.svg": "/cinelib/static/media/time.9dfec2ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e2e78bd.js",
+    "static/js/2.af1dd8fc.chunk.js",
+    "static/css/main.859477dc.chunk.css",
+    "static/js/main.dc15315c.chunk.js"
+  ]
+}
