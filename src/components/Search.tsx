@@ -140,6 +140,7 @@ export default function Search() {
 	return (
 		<Form onSubmit={handleSubmission}>
 			<Input
+				autoComplete="off"
 				onChange={handleChange}
 				type="text"
 				placeholder="Search"

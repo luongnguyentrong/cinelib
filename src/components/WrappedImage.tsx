@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react"
 import styled from "styled-components"
+import fallbackPoster from "./images/fallback-poster.png"
+import fallbackBackdrop from "./images/fallback-backdrop.png"
 
 const Container = styled.div<{ ratio: number }>`
 	display: inline-block;
@@ -74,8 +76,8 @@ export default function WrappedImage(props: IProps) {
 			onError={(event) => {
 				const image = event.target as HTMLImageElement
 
-				if (props.ratio === "POSTER_RATIO") image.src = "/fallback-poster.png"
-				else image.src = "/fallback-backdrop.png"
+				if (props.ratio === "POSTER_RATIO") image.src = fallbackPoster
+				else image.src = fallbackBackdrop
 			}}
 			ref={imageRef}
 			data-src={props.src}
@@ -83,14 +85,10 @@ export default function WrappedImage(props: IProps) {
 		/>
 	) : (
 		<Image
-			src={props.ratio === "POSTER_RATIO" ? "/fallback-poster.png" : "/fallback-backdrop.png"}
+			src={props.ratio === "POSTER_RATIO" ? fallbackPoster : fallbackBackdrop}
 			alt={props.alt}
 		/>
 	)
 
-	return (
-		<Container ratio={RATIO[props.ratio]}>
-			{GetImage}
-		</Container>
-	)
+	return <Container ratio={RATIO[props.ratio]}>{GetImage}</Container>
 }

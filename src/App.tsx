@@ -6,7 +6,7 @@ import Header from "./components/Header"
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={process.env.PUBLIC_URL}>
 			<Header />
 			
 			<Switch>
@@ -20,10 +20,7 @@ function App() {
 					<Details />
 				</Route>
 				
-				<Route>
-					<div>Something</div>
-				</Route>
-				{/* <Redirect to="/" /> */}
+				<Redirect to="/" />
 			</Switch>
 		</BrowserRouter>
 	)
